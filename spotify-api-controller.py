@@ -1,12 +1,19 @@
 import sys
 import spotipy
+import configparser
 from spotipy.oauth2 import SpotifyOAuth
 
-# Set up Spotify API credentials
-client_id = 'YOUR_ID_HERE'
-client_secret = 'YOUR_SECRET_HERE'
-redirect_uri = 'http://localhost:8888/callback'
-scope = 'user-read-playback-state user-modify-playback-state'
+# Create a ConfigParser object
+config = configparser.ConfigParser()
+
+# Read the configuration file
+config.read('config.ini')
+
+# Get Spotify credentials
+client_id = config.get('Spotify', 'client_id')
+client_secret = config.get('Spotify', 'client_secret')
+redirect_uri = config.get('Spotify', 'redirect_uri')
+scope = config.get('Spotify', 'scope')
 
 # Set up SpotifyOAuth
 sp_oauth = SpotifyOAuth(client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri, scope=scope)
