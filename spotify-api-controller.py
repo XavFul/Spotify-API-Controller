@@ -59,6 +59,9 @@ else:
 
     device_name = sys.argv[1]
     command = sys.argv[2]
+    # Set the playlist if the argument is provided in the commandline
+    playlist_uri = None
+    
 
     # Find the device ID for the specified device name
     device_id = None
@@ -83,3 +86,10 @@ else:
         print(f"Playback paused on device: {device_name}")
     else:
         print("Invalid command. Please use 'play' or 'pause'.")
+
+    if len(sys.argv) >= 4
+        playback_URI = sys.argv[3]
+        # Start playback with the specified playlist URI
+        sp.start_playback(context_uri=playlist_uri, device_id=device_id)
+        # Set it to repeat the track
+        repeat('context', device_id=device_id)
