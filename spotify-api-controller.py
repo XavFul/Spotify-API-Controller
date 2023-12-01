@@ -87,7 +87,7 @@ else:
     else:
         print("Invalid command. Please use 'play' or 'pause'.")
 
-    if len(sys.argv) >= 4
+    if len(sys.argv) >= 4:
         playback_URI = sys.argv[3]
         # Start playback with the specified playlist URI
         sp.start_playback(context_uri=playlist_uri, device_id=device_id)
