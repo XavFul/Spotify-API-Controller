@@ -37,9 +37,10 @@ Don't change the scope unless you make modifications to the file that require an
 1. Run the script using the following command:
 
 ```bash
-python spotify-api-controller.py DEVICE_NAME <play, pause>
+python spotify-api-controller.py DEVICE_NAME <play, pause> <Playlist_URI>
 ```
 Replace `DEVICE_NAME` with the name of your Spotify device and `<play, pause>` with the desired command.
+Only use the `Playlist_URI` if you are going to be **PLAYING** the playlist; you cannot set the playlist while playback is paused. It will start playback even if you enter the command with "pause".
 
 2. If it's your first time running the script, follow the authorization prompts and paste the redirected URL when prompted.
 
