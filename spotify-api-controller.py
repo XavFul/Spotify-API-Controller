@@ -51,7 +51,7 @@ else:
     # Get a list of available devices and authorize access for this session
     sp = spotipy.Spotify(auth=token_info['access_token'])
     devices = sp.devices()
-
+    
 # Extract device name and command from command line arguments
     if len(sys.argv) < 3:
         print("Usage: python3 spotify-api-controller.py DEVICE_NAME <play, pause>")
@@ -74,6 +74,8 @@ else:
     # Perform the specified command (play or pause) on the specified device
     if command == 'play':
         sp.transfer_playback(device_id=device_id, force_play=1)
+        # Set it to repeat the track
+        repeat('context', device_id=device_id)
         print(f"Playback started on device: {device_name}")
     elif command == 'pause':
         sp.pause_playback()
