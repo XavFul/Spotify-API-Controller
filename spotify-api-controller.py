@@ -100,5 +100,3 @@ else:
         sp.playlist_add_items(playlist_uri, track_uris)
         # Add the shuffled tracks to the playback queue
         sp.start_playback(uris=track_uris)
-        # Set it to repeat the track
-        sp.repeat('context', device_id=device_id)
