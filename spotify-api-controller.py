@@ -90,9 +90,9 @@ else:
 
     if len(sys.argv) >= 4:
         # Get the playlist
-        playlist_URI = sys.argv[3]
+        playlist_uri = sys.argv[3]
         # Get the tracks from the playlist
-        tracks = sp.playlist_tracks(playlist_URI)['items']
+        tracks = sp.playlist_tracks(playlist_uri)['items']
         track_uris = [track['track']['uri'] for track in tracks]
         # Shuffle the track list
         random.shuffle(track_uris)
