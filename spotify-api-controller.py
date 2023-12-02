@@ -96,7 +96,5 @@ else:
         track_uris = [track['track']['uri'] for track in tracks]
         # Shuffle the track list
         random.shuffle(track_uris)
-        # Add the shuffled tracks to the destination playlist
-        sp.playlist_add_items(playlist_uri, track_uris)
         # Add the shuffled tracks to the playback queue
         sp.start_playback(uris=track_uris)
