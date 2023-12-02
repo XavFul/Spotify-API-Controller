@@ -78,7 +78,7 @@ else:
     if command == 'play':
         sp.transfer_playback(device_id=device_id, force_play=1)
         # Set it to repeat the track
-        repeat('context', device_id=device_id)
+        sp.repeat('context', device_id=device_id)
         print(f"Playback started on device: {device_name}")
     elif command == 'pause':
         sp.pause_playback()
@@ -92,4 +92,4 @@ else:
         # Start playback with the specified playlist URI
         sp.start_playback(context_uri=playlist_uri, device_id=device_id)
         # Set it to repeat the track
-        repeat('context', device_id=device_id)
+        sp.repeat('context', device_id=device_id)
