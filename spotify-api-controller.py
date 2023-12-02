@@ -93,7 +93,7 @@ else:
         playlist_URI = sys.argv[3]
         # Get the tracks from the playlist
         tracks = sp.playlist_tracks(playlist_URI)['items']
-        track_uris = [tracks['track']['uri'] for track in tracks]
+        track_uris = [track['track']['uri'] for track in tracks]
         # Shuffle the track list
         random.shuffle(track_uris)
         # Add the shuffled tracks to the destination playlist
