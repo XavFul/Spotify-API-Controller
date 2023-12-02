@@ -2,6 +2,7 @@ import sys
 import spotipy
 import configparser
 from spotipy.oauth2 import SpotifyOAuth
+import random
 
 # Create a ConfigParser object
 config = configparser.ConfigParser()
@@ -88,10 +89,16 @@ else:
         print("Invalid command. Please use 'play' or 'pause'.")
 
     if len(sys.argv) >= 4:
+        # Get the playlist
         playlist_URI = sys.argv[3]
-        # Start playback with the specified playlist URI
-        sp.start_playback(context_uri=playlist_uri, device_id=device_id)
-        # Shuffle playlist
-        sp.shuffle(True, device_id=device_id)
+        # Get the tracks from the playlist
+        tracks = sp.playlist_tracks(playlist_URI)['items']
+        track_uris = [track['track']['uri'] for track in source_tracks]
+        # Shuffle the track list
+        random.shuffle(track_uris)
+        # Add the shuffled tracks to the destination playlist
+        sp.playlist_add_items(playlist_id, track_uris)
+        # Add the shuffled tracks to the playback queue
+        sp.start_playback(uris=track_uris)
         # Set it to repeat the track
         sp.repeat('context', device_id=device_id)
