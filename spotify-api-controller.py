@@ -1,4 +1,4 @@
-import sys
+
 import spotipy
 import configparser
 from spotipy.oauth2 import SpotifyOAuth
@@ -97,7 +97,7 @@ else:
         # Shuffle the track list
         random.shuffle(track_uris)
         # Add the shuffled tracks to the destination playlist
-        sp.playlist_add_items(playlist_id, track_uris)
+        sp.playlist_add_items(playlist_uri, track_uris)
         # Add the shuffled tracks to the playback queue
         sp.start_playback(uris=track_uris)
         # Set it to repeat the track
