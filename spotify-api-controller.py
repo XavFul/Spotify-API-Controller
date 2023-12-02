@@ -91,5 +91,7 @@ else:
         playlist_URI = sys.argv[3]
         # Start playback with the specified playlist URI
         sp.start_playback(context_uri=playlist_uri, device_id=device_id)
+        # Shuffle playlist
+        sp.shuffle(True, device_id=device_id)
         # Set it to repeat the track
         sp.repeat('context', device_id=device_id)
