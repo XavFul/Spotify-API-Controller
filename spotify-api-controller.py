@@ -91,12 +91,6 @@ else:
     if len(sys.argv) >= 4:
         # Get the playlist
         playlist_uri = sys.argv[3]
-        # Get the tracks from the playlist
-        tracks = sp.playlist_tracks(playlist_uri)['items']
-        track_uris = [track['track']['uri'] for track in tracks]
-        # Shuffle the track list
-        print(track_uris)
-        random.shuffle(track_uris)
-        print(track_uris)
-        # Add the shuffled tracks to the playback queue
-        sp.start_playback(uris=track_uris)
+        # Shuffle the playlist
+        sp.shuffle(state=True, device_id=device_id)
+        sp.start_playback(uris=playlist_uri)
