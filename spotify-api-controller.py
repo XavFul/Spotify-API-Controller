@@ -77,6 +77,7 @@ else:
 
     # Perform the specified command (play or pause) on the specified device
     if command == 'play':
+        sp.shuffle(state=True, device_id=device_id)
         sp.transfer_playback(device_id=device_id, force_play=1)
         # Set it to repeat the track
         sp.repeat('context', device_id=device_id)
